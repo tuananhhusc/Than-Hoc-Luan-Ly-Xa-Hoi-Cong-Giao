@@ -1,12 +1,7 @@
 self.__BUILD_MANIFEST = {
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [
-      {
-        "source": "/Than-Hoc-Luan-Ly-Xa-Hoi-Cong-Giao//_next/:path+",
-        "destination": "/Than-Hoc-Luan-Ly-Xa-Hoi-Cong-Giao/_next/:path+"
-      }
-    ],
+    "beforeFiles": [],
     "fallback": []
   },
   "sortedPages": [
