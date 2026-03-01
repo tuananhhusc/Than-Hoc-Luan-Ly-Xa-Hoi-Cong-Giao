@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Thần Học Luân Lý Xã Hội Công Giáo
 
-## Getting Started
+> Nền Tảng Kinh Viện, Tiến Trình Lịch Sử và Chuyển Hóa Thực Hành Tại Việt Nam
 
-First, run the development server:
+Một ứng dụng web tĩnh học thuật, tinh tế và tối ưu hóa trải nghiệm đọc văn bản dài, được xây dựng bằng **Next.js (App Router)** và **Tailwind CSS**. Dự án này trình bày một báo cáo nghiên cứu chuyên sâu về Học thuyết Xã hội của Giáo hội Công giáo (Catholic Social Teaching).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🌟 Điểm Nổi Bật Về Thiết Kế (Design Highlights)
+
+Dự án được thiết kế với triết lý "Học thuật & Thánh thiêng", đảm bảo trải nghiệm đọc nghiêm túc, tập trung nhưng vẫn mang tính thẩm mỹ cao:
+
+*   **Nghệ thuật Chữ (Typography):** 
+    *   Sử dụng phông chữ **Merriweather** (Serif) cho các tiêu đề lớn, mang lại vẻ đẹp cổ điển, uy nghiêm và cứng cáp.
+    *   Sử dụng phông chữ **Lora** (Serif) cho nội dung bài viết, được tinh chỉnh khoảng cách dòng (line-height) nhằm tối ưu hóa việc đọc các văn bản tiếng Việt dài mà không gây mỏi mắt.
+    *   **Drop Cap:** Mở đầu mỗi phần bằng một chữ cái lớn (Drop Cap) màu Vàng Gold tĩnh tại, gợi nhớ đến các văn bản thần học kinh viện.
+*   **Trích Dẫn Học Thuật (In-text Citations):** Tích hợp các con số chú thích (ví dụ: <sup>[1]</sup>) trực tiếp trong nội dung văn bản. Các chú thích này là những siêu liên kết mỏ neo (anchor links) cuộn mượt mà xuống phần Nguồn Trích Dẫn ở cuối trang.
+*   **Mục Lục Thông Minh (Scroll-spy TOC):** Menu điều hướng dính (sticky) ở thanh bên (sidebar) tự động đánh dấu mục đang đọc dựa trên thao tác cuộn chuột. Hỗ trợ nút nổi (Floating action button) dành riêng cho giao diện di động.
+*   **Tài Liệu Tham Khảo (APA Format):** Danh sách 57 nguồn tài liệu tham khảo được format chỉn chu theo chuẩn APA, tích hợp tính năng thu gọn/mở rộng giúp giao diện không bị choáng ngợp.
+*   **Bảng Học Thuật (Academic Tables):** Bảng biểu được style rõ ràng, viền mỏng, màu nền tiêu đề nhạt, tập trung tuyệt đối vào dữ liệu.
+
+## 🛠 Tech Stack
+
+*   **Framework:** [Next.js](https://nextjs.org/) (App Router, React 19)
+*   **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+*   **Ngôn Ngữ:** TypeScript
+*   **Phông Chữ:** Google Fonts (`next/font/google` - Merriweather & Lora)
+*   **Khác:** Lucide React (Icons)
+
+## 📂 Cấu Trúc Thư Mục Chính
+
+```text
+d:\thanhocluanly
+├── public/                 # Các tài nguyên tĩnh (images, icons)
+├── src/
+│   ├── app/
+│   │   ├── globals.css     # Định nghĩa bộ màu hệ thống (Gold, Warm Gray) và CSS tùy chỉnh
+│   │   ├── layout.tsx      # Root HTML cốt lõi, SEO Metadata, và cấu hình hai font chữ
+│   │   └── page.tsx        # Cấu trúc lưới hai cột (TOC + Content)
+│   ├── components/
+│   │   ├── ContentSection.tsx   # Render nội dung đoạn văn, Drop Caps, và In-text Citations
+│   │   ├── ContentTable.tsx     # Render bảng biểu học thuật
+│   │   ├── Footer.tsx           # Chân trang với biểu tượng IHS
+│   │   ├── Header.tsx           # Tiêu đề trang trọng
+│   │   ├── References.tsx       # Component quản lý 57 tài liệu tham khảo
+│   │   └── TableOfContents.tsx  # Component Client xử lý cuộn trang (IntersectionObserver)
+│   └── lib/
+│       ├── content.ts      # TOÀN BỘ dữ liệu văn bản được cấu trúc hóa dưới dạng object
+│       └── types.ts        # Các interface TypeScript định nghĩa cấu trúc dữ liệu
+└── tailwind.config.ts      # (Nếu xài Tailwind v3, đối với v4 cấu hình được đưa vào globals.css)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Hướng Dẫn Cài Đặt và Khởi Chạy Local
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Bạn có thể chạy dự án này trực tiếp trên máy tính của mình bằng các bước sau:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  **Clone hoặc Tải Source Code về máy.**
+2.  **Mở Terminal** tại thư mục gốc của dự án (`d:\thanhocluanly`).
+3.  **Cài đặt các gói phụ thuộc (Dependencies):**
+    ```bash
+    npm install
+    ```
+4.  **Khởi chạy Server Development:**
+    ```bash
+    npm run dev
+    ```
+5.  **Thưởng thức kết quả:** Mở trình duyệt và truy cập vào địa chỉ [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## 📝 Quản Lý Nội Dung
 
-To learn more about Next.js, take a look at the following resources:
+Toàn bộ nội dung của bài viết, mục lục và danh sách tài liệu tham khảo không bị hard-code (viết chết) vào các file giao diện. Thay vào đó, tất cả được tách bạch hợp lý tại file `src/lib/content.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Nếu bạn muốn chỉnh sửa, thêm hoặc bớt các đoạn văn, tiêu đề hay tài liệu tham khảo, bạn chỉ cần thay đổi dữ liệu trong file `content.ts`. Component `ContentSection` và `References` sẽ tự động parse (phân tích) trích dẫn dạng `[1]`, `[2]` để biến chúng thành HTML chuẩn học thuật.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Dự án tạo ra với mục đích phục vụ nghiên cứu và lan tỏa Học thuyết Xã hội Công giáo dưới một giao diện đẹp mắt, dễ tiếp cận và tôn trọng người học.*
